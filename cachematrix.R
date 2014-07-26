@@ -34,23 +34,21 @@ makeCacheMatrix <- function( m = matrix() ) {
 
 cacheSolve <- function(x, ...) {
 
-    ## Return a matrix that is the inverse of 'x'
+    ## Return the inverse of x
     m <- x$seteoInversa()
 
-    ## Just return the inverse if its already set
     if( !is.null(m) ) {
             return(m)
     }
 
-    ## Get the matrix from our object
+    ## Getting the matrix
     data <- x$get()
 
-    ## Calculate the inverse using matrix multiplication
     m <- solve(data) %*% data
 
-    ## Set the inverse to the object
+    ## Set the inverse
     x$seteoInversa(m)
 
-    ## Return the matrix
+    ## Return m
     m
 }
